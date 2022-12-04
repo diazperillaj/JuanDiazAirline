@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    height: 65px;
+    background-color: #ffffff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0px 3px 4px #e7e7e7;
+}
+
+.menu > li{
+    display: inline-block;
+}
+
+.menu > li > a{
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+}
+
+.user_options{
+    margin-right: 100px;
+    width: 154px;
+    display: flex;
+    text-align: center;
+}
+
+.submenu{
+    position: absolute;
+    list-style: none;
+    background-color: #fff;
+    padding-top: 21px;
+    visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s ease-in-out;
+}
+
+.submenu li a{
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu li:hover .submenu{
+    visibility: visible;
+	opacity: 1;
+}
+
+.login_href{
+    border: 2px solid #a6a6a6;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition:
+        border-radius .4s ease,
+        background-color .4s ease;
+}
+
+.login_href:hover{
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+.vuelos_option{
+    padding: 10px 15px;
+    border: 2px solid #a6a6a6;
+    border-radius: 5px;
+    transition:
+        border-radius .4s ease,
+        background-color .4s ease;
+}
+
+.vuelos_option:hover{
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+.aerolineas_option{
+    padding: 10px 15px;
+    border: 2px solid #a6a6a6;
+    border-radius: 5px;
+    transition:
+        border-radius .4s ease,
+        background-color .4s ease;
+}
+
+.aerolineas_option:hover{
+    border-radius: 10px;
+    background-color: #c0c0c0;
+}
+
+.content{
+    display: flex;
+    width: 1600px;
+    margin: 10px auto;
+
+}
+
+.table__content{
+    width: 95%;
+    margin: 0 auto;
+    background: #f1f1f1;
+    border-radius: 40px;
+    padding: 20px 40px;
+    box-shadow: 4px 6px 10px #858585;
+}
+.table__content table{
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-radius: 20px;
+}
+
+th,td{
+    padding: 20px;
+}
+
+thead{
+    text-align: left;
+    background-color: #8b5a00;
+    color: #fff;
+    border-bottom: 5px solid #845600;
+}
+
+tr{
+    transition: background-color 300ms ease;
+}
+
+tr:nth-child(even){
+    background-color: #ddd;
+}
+
+
+tr:hover{
+    background-color: #ba7901;
+    color: white;
+}
+
+.table_edit_action, .table_delete_action{
+    text-decoration: none;
+    color: #fff;
+    border-radius: 10px;
+    padding: 7px 10px;
+    transition: background-color .4s ease;
+}
+
+.table_actions{
+    width: 20%;
+}
+
+.table_edit_action{
+    border: 2px solid #2b6800;
+    background-color: #72b045;
+}
+
+.table_edit_action:hover{
+    background-color: #5c9f2c;
+}
+
+.table_delete_action{
+    border: 2px solid #960000;
+    background-color: #af3737;
+}
+
+.table_delete_action:hover{
+    background-color: #840e0e;
+}
+
+.table_no_count{
+    display: grid;
+    width: 800px;
+    background-color: #fc3737;
+    font-size: 15px;
+    padding: 30px 50px;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    border: 4px solid #8e0f0f;
+    gap: 20px;
+}
+
+.table_no_count_create{
+    font-size: 20px;
+    width: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    padding: 20px 30px;
+    border: 2px solid #2b6800;
+    background-color: #5c9f2c;
+    transition: all .4s ease;
+}
+
+.table_no_count_create:hover{
+    border-radius: 30px;
+}
+.content .table_no_count_create{
+    margin: 0 auto;
+}
+
+.modal{
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #111111bd;
+    display: flex;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+.modal__container{
+    margin: auto;
+    width: 90%;
+    background-color: #fff;
+    max-width: 600px;
+    max-height: 90%;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+}
+
+.modal_form{
+
+    text-align: center;
+}
+
+.modal_form__title{
+    padding: 1em 0 2em 0;
+    font-size: 30px;
+}
+
+.modal_form__group{
+    position: relative;
+    font-size: 20px;
+    text-align: left;
+    padding-bottom: 20px;
+
+}
+
+.modal_form__input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid #a6a6a6;
+    border-radius: 10px;
+    padding-left: 20px;
+    outline: none;
+    transition: border-color .4s ease;
+}
+
+.modal_form__input:focus{
+    border-color: #757575;
+}
+
+.modal_form__submit{
+    padding: 10px 15px;
+    border: 2px solid #858585;
+    border-radius: 7px;
+    transition: border-radius .4s ease,
+        background-color .4s ease;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.modal_form__submit:hover{
+    border-radius: 12px;
+    background-color: #cacaca;
+}
+
+.modal_form__cancel{
+    border: none;
+    background-color: unset;
+    text-decoration: underline;
+    color: #5ea8cb;
+    cursor: pointer;
+}
+
+.create_aerolinea_button{
+    position: block;
+    text-decoration: none;
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+    color: #fff;
+    border: 2px solid #000;
+    padding: 20px 30px;
+}
+.form_edit{
+    background-color: #e4e4e4;
+    border-radius: 40px;
+}
+
+.confirm_delete_container{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.confirm_delete__button{
+    border: 2px solid #840e0e;
+    padding: 15px 20px;
+    border-radius: 10px;
+    background-color: #fc3737;
+    transition: border-radius .5s ease, background-color .5s ease;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.confirm_delete__button:hover{
+    border-radius: 20px;
+    background-color: #af3737;
+}
+
+.vuelos_modal_container{
+    max-width: 1200px;
+}
+
+.create_vuelos_modal{
+    width: 90%;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-auto-rows: minmax(auto, auto);
+    row-gap: 40px;
+    column-gap: 10px;
+}
+
+.vuelos_form__label{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.vuelos_form__input{
+    width: 100%;
+    font-size: 18px;
+    margin: 0 auto;
+    height: 40px;
+    border-radius: 10px;
+    border: unset;
+    outline: 2px solid #a6a6a6;
+    padding-left: 15px;
+    margin-top: 5px;
+}
+
+.vuelos_form_options{
+    grid-column: 1/6;
+    margin: 0 auto;
+}
+
+.vuelos_form__submit, .vuelos_form__cancel{
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: unset;
+    cursor: pointer;
+    transition: background-color .3s ease, border-radius .4s ease;
+}
+
+.vuelos_form__submit{
+    padding: 10px 15px;
+    border-radius: 8px;
+    outline: 2px solid #757575;
+}
+
+.vuelos_form__submit:hover{
+    background-color: #dbdbdb;
+    border-radius: 13px;
+}
+
+#vuelos_salida{
+    grid-column: 1/3;
+    grid-row: 1/2;
+}
+#vuelos_destino{
+    grid-column: 3/5;
+    grid-row: 1/2;
+}
+
+#vuelos_pasajeros{
+    grid-column: 5/6;
+    grid-row: 1/2;
+}
+
+#vuelos_novedad{
+    grid-column: 1/6;
+    grid-row: 2/3;
+}
+
+#vuelos_fecha_salida{
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+
+#vuelos_fecha_llegada{
+    grid-column: 4/6;
+    grid-row: 3/4;
+}
+
+#salida_fecha{
+    width: 488px;
+}
+
+.edit_vuelo_content{
+    background-color: #e7e7e7;
+    padding: 3em 4em;
+    border-radius: 20px;
+}
